@@ -32,4 +32,10 @@ export class TasksService {
     const indexToDelete = this.tasks.findIndex((task) => task.id === id);
     this.tasks = this.tasks.splice(indexToDelete, 1);
   }
+
+  updateTask(id: string, status: TaskStatus): Task {
+    const task = this.getTaskById(id);
+    task.status = status;
+    return task;
+  }
 }
